@@ -2,8 +2,18 @@ function guessIsRight(guess) {
     const number = +guess
 
     if (invalidGuess(number)) {
-        guessElement.innerHTML += '<div> Valor inválido </div>'
-        return
+        if (guess.toUpperCase() === "GAME OVER" || guess.toUpperCase() === "FIM DE JOGO") {
+            document.body.innerHTML = `
+            <h2><b> Game Over! </b><h2>
+            <h3><b>Pressione o botão para jogar novamente </b><h3>
+            <button id="play-again" class="btn-play"> Jogar novamente </button>
+            `
+
+            document.body.style.backgroundColor = "#f50c1c"
+        } else {
+            guessElement.innerHTML += '<div> Valor inválido </div>'
+            return
+        }
     }
 
     if (guessMinorOrBigger (number)) {
@@ -11,6 +21,7 @@ function guessIsRight(guess) {
         estar entre ${minorValue} e ${biggerValue} </div>`
         return
     }
+
 
     if (number === secretNumber) {
         document.body.innerHTML = `<h2> Você acertou! </h2>
