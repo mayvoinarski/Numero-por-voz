@@ -44,3 +44,10 @@ h3 {
     margin: 20px;
 }
 
+.btn-play {
+    padding: 0.75rem;
+    border: 0;
+    background: var(--primary-color);
+    border-radius: 5px;
+    margin-top: 20px;
+}
